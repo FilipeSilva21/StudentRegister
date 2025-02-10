@@ -1,0 +1,164 @@
+
+$primary-color: #004488;  // Azul SGN
+$secondary-color: #0066cc; // Azul mais claro
+$background-color: #0f3c4c; // Cinza claro
+$table-header-color: #e3eaf1; // Cinza azulado
+$text-color: white;
+$textInput-color: #ffffff86;
+
+
+// Reset bÃ¡sico e estilos globais
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: $background-color;
+  color: $text-color;
+  margin: auto;
+  padding: auto;
+}
+
+// container principal
+.container {
+  height: 120%;
+  max-width: 90%;
+  padding: 8px;
+  background: #131516;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+// container do add student
+.container-forms {
+  height: 120%;
+  max-width: 100%;
+  padding: 8px;
+  background: #181a1b;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+// container do update student
+.container-changer {
+  height: 120%;
+  max-width: 100%;
+  padding: 8px;
+  background: #181a1b;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+// titulo
+h1 {
+  text-align: center;
+  color: $primary-color;
+  font-weight: bold;
+}
+
+// searchbar bar
+.filter{
+  width: 30%;
+  background-color: transparent;
+}
+
+//update student bar
+.filterColor{
+  background-color: #26292b !important;
+  border-color: #26292b !important;
+}
+
+// Manipula background color inicial
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: #26292b !important;
+}
+
+
+// barra de busca
+mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+  color: $text-color !important;
+}
+
+// BotÃ£o de novo aluno
+button {
+  background-color: $primary-color;
+  color: $text-color;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+// Tabela
+mat-table {
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #1a1c1e;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+// Linhas da tabela
+.mat-mdc-row{
+  background-color: #1a1c1e !important;
+  color: #f0f0f0;
+}
+
+// header da tabela
+.mat-mdc-header-row{
+  width: 100%;
+  background-color: #004488 !important;
+}
+
+// tabela
+mat-cell, mat-header-cell {
+  padding: 12px;
+  border-bottom: 1px solid;
+  color: $text-color;
+  text-align: center;
+}
+
+// BotÃ£o de editar usuÃ¡rio
+.edit-button {
+  background-color: $secondary-color;
+  color: $text-color;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  &:hover {
+    background-color: darken($secondary-color, 10%);
+  }
+}
+
+// footer do paginator
+.paginator{
+  background-color: #1a1c1e !important;
+  color: $text-color;
+}
+
+// EstilizaÃ§Ã£o do paginator
+mat-paginator {
+  height: auto;
+  margin-top: 10px;
+  color: white;
+}
+
+// texto do paginator
+.mat-mdc-paginator-container {
+  background-color: #212325 !important;
+  color: $text-color;
+}
+
+// icon do paginator
+.mat-mdc-paginator-icon {
+	fill: $text-color !important;
+}
+
+// textos dos inputs
+::-webkit-input-placeholder {
+  color: $textInput-color !important;
+}

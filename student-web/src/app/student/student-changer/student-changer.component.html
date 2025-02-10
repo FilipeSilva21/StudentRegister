@@ -1,0 +1,27 @@
+<div class="container-changer" style="width: 500px;">
+
+  <button mat-button (click)="closeWindowUpdate()" [mat-dialog-close]="data" style="float: right; padding-left: 30px;">
+    <mat-icon style="color: white;">close</mat-icon>
+  </button>
+
+  <div mat-dialog-title> <h2 style="color: white; text-align: center;">Formulario de atualização de cadastro de alunos</h2></div>
+
+  <div mat-dialog-content>
+    <mat-form-field style="width: 450px;" class="textForms" >
+      <input matInput [(ngModel)]="data.birthday" type="text" placeholder="Insira a data de nascimento do aluno" style="color: white">
+    </mat-form-field>
+    <br>
+    <mat-form-field style="width: 450px;" class="textForms">
+      <input matInput [(ngModel)]="data.email" type="text" placeholder="Insira o email do aluno" style="color: white">
+    </mat-form-field>
+    <br>
+    <mat-form-field style="width: 450px;" class="textForms">
+      <input matInput [(ngModel)]="data.phone" type="text" placeholder="Insira o telefone do aluno" style="color: white">
+    </mat-form-field>
+  </div>
+
+  <div mat-dialog-actions align="end">
+    <button (click)="deleteStudentComponent(data.studentId!)" mat-flat-button style="height: 40px; width: auto; background-color:red;" [mat-dialog-close]="data">Deletar usuário</button>
+    <button (keydown.enter)="updateStudentComponent(data)" (click)="updateStudentComponent(data)"  mat-flat-button [mat-dialog-close]="data">Atualizar Usuario</button>
+  </div>
+</div>

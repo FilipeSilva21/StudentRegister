@@ -17,7 +17,7 @@ import {DateAdapter, MAT_DATE_LOCALE} from '@angular/material/core';
 @Component({
   selector: 'app-student-form',
   imports: [MatDialogModule, MatDialogTitle, MatDialogContent, MatDialogActions, MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule, CommonModule, FormsModule, MatFormFieldModule, MatInputModule, MatDatepickerModule],
-  import {DateAdapter, MAT_DATE_LOCALE, provideNativeDateAdapter} from '@angular/material/core';
+  providers: [provideNativeDateAdapter(), [{provide: MAT_DATE_LOCALE, useValue: 'pt-br'}], ],
   changeDetection:ChangeDetectionStrategy.OnPush,
   templateUrl: './student-form.component.html',
   styleUrl: './student-form.component.scss'

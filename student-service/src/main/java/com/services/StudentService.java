@@ -20,27 +20,31 @@ public class StudentService {
     public Long createStudent(CreateStudentDTO createStudentDTO){
 
         var student = new Student(
-                        null,
-                        createStudentDTO.name(),
-                        createStudentDTO.email(),
-                        createStudentDTO.age(),
-                        createStudentDTO.phone()
-                );
-
-        if(createStudentDTO.name().length() < 10){
-            throw new IllegalArgumentException("Nome do usuario deve ter no minimo 10 caracteres");
-        }
+            null,
+            createStudentDTO.name(),
+            createStudentDTO.email(),
+            createStudentDTO.birthday(),
+            createStudentDTO.phone(),
+            createStudentDTO.cpf()
+        );
 
         if(studentRepository.findByEmail(createStudentDTO.email()).isPresent()){
             throw new IllegalArgumentException("Usuario com esse email ja cadastrado");
         }
-
-        if(createStudentDTO.age() < 18){
-            throw new IllegalArgumentException("Usuario deve ter no minimo 18 anos");
+        if(studentRepository.findByCpf(createStudentDTO.cpf()).isPresent()){
+            throw new IllegalArgumentException("Usuario com esse cpf ja cadastrado");
         }
-
+        if(createStudentDTO.name().length() < 10){
+            throw new IllegalArgumentException("Nome do usuario deve ter no minimo 10 caracteres");
+        }
         if (!createStudentDTO.email().contains("@")){
             throw new IllegalArgumentException("Usuario de email não é valido pos deve conter '@'");
+        }
+        if(createStudentDTO.phone().length() < 11){
+            throw new IllegalArgumentException("Telefone do usuario deve ter no minimo 11 caracteres");
+        }
+        if(createStudentDTO.cpf().length() < 11){
+            throw new IllegalArgumentException("Cpf do usuario deve ter no minimo 10 caracteres");
         }
 
         var studentSaved = studentRepository.save(student);
@@ -65,12 +69,6 @@ public class StudentService {
         if (studentEntity.isPresent()) {
             var student = studentEntity.get();
 
-            if (updateUserDTO.name() != null) {
-                student.setName(updateUserDTO.name());
-            }
-            if (updateUserDTO.age() != null) {
-                student.setAge(updateUserDTO.age());
-            }
             if (updateUserDTO.phone() != null) {
                 student.setPhone(updateUserDTO.phone());
             }

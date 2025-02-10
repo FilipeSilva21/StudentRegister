@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Entity
 @Getter
 @Setter
@@ -19,16 +21,19 @@ public class Student {
     @Column(name = "studentId")
     private Long studentId;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
     @Column(name = "email")
     private String email;
 
-    @Column(name = "age")
-    private Integer age;
+    @Column(name = "birthday", nullable = false)
+    private Date birthday;
 
     @Column(name = "phone")
     private String phone;
+
+    @Column(name = "cpf", nullable = false)
+    private String cpf;
 
 }

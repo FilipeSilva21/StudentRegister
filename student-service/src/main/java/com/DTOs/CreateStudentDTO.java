@@ -1,4 +1,6 @@
 package com.DTOs;
 
-public record CreateStudentDTO(String name, String email, Integer age, String phone){
+import java.util.Date;
+
+public record CreateStudentDTO(String name, String email, Date birthday, String phone, String cpf){
 }

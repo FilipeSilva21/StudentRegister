@@ -15,13 +15,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/v1/students")
+@CrossOrigin("*")
 public class StudentController {
 
     @Autowired
     private StudentService studentService;
 
     @PostMapping
-    public ResponseEntity<Long> createUser(@RequestBody CreateStudentDTO createStudentDTO){
+    public ResponseEntity<Long> createStudent(@RequestBody CreateStudentDTO createStudentDTO){
 
         var userId = studentService.createStudent(createStudentDTO);
 
@@ -29,7 +30,7 @@ public class StudentController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Student>> getAllUsers(){
+    public ResponseEntity<List<Student>> getAllStudents(){
 
         var users = studentService.getAllStudents();
 

@@ -43,7 +43,7 @@ class StudentServiceTest {
     void setUp() {
         student = new Student(null, "Filipe Silva", "filipe@email.com", birthday, "11987654321", "12345678901");
         createStudentDTO = new CreateStudentDTO("Filipe Silva", "filipe@email.com", birthday, "11987654321", "12345678901");
-        updateStudentDTO = new UpdateStudentDTO("new.email@email.com", "11912345678");
+        updateStudentDTO = new UpdateStudentDTO("new.email@email.com", "11912345678", birthday);
     }
 
     @Test

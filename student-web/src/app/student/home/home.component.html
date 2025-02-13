@@ -1,0 +1,75 @@
+<div class='container' style='margin-left:80px; width: 2000px; height: 100%;'>
+  <br>
+  <h1 style='color: #6c9cca; text-align: center;'><strong>SGN Sistemas - Cadastro de alunos </strong></h1>
+  <br>
+
+  <mat-form-field class='filter'>
+    <input class='filterColor' (input)='searchStudent(filter.value)' matInput placeholder='Insira o nome do aluno' type='text' #filter style='color: white;'>
+  </mat-form-field>
+
+  <button mat-flat-button (click)='createStudent(student)' style='width: 150px; float: right; margin: 15px;'>Novo aluno</button>
+
+  <br>
+  <div class='mat-dialog-content'>
+    <mat-table #table [dataSource]='dataSource' matSort>
+
+      <!-- Id Column -->
+      <ng-container matColumnDef='studentId'>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Id </mat-header-cell>
+        <mat-cell *matCellDef='let student'> {{student.studentId}} </mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef='name'>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Nome </mat-header-cell>
+        <mat-cell *matCellDef='let student'> {{student.name}} </mat-cell>
+      </ng-container>
+
+      <!-- Email Column -->
+      <ng-container matColumnDef='email'>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+        <mat-cell *matCellDef='let student'> {{student.email}} </mat-cell>
+      </ng-container>
+
+      <!-- CPF Column -->
+      <ng-container matColumnDef='cpf'>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> CPF </mat-header-cell>
+        <mat-cell *matCellDef='let student'> {{student.cpf}} </mat-cell>
+      </ng-container>
+
+      <!-- Phone Column -->
+      <ng-container matColumnDef='phone'>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Telefone </mat-header-cell>
+        <mat-cell *matCellDef='let student'> {{student.phone}} </mat-cell>
+      </ng-container>
+
+      <!-- Birthday Column -->
+      <br>
+      <ng-container matColumnDef='birthday'>
+        <mat-header-cell *matHeaderCellDef> Data de Nascimento </mat-header-cell>
+        <mat-cell *matCellDef='let student'> {{ student.birthday | date:'dd/MM/yyyy' }} </mat-cell>
+      </ng-container>
+
+      <!-- Edit Column -->
+      <br>
+      <ng-container matColumnDef='edit'>
+        <mat-header-cell *matHeaderCellDef> Editar usuário </mat-header-cell>
+        <mat-cell *matCellDef='let student'> <button mat-flat-button (click)='updateStudent(student)'>Editar Usuário</button></mat-cell>
+      </ng-container>
+      <br>
+
+      <mat-header-row *matHeaderRowDef='displayedColumns'></mat-header-row>
+      <mat-row *matRowDef='let student; columns: displayedColumns;' (dblclick)='updateStudent(student)'></mat-row>
+    </mat-table>
+  </div>
+
+  <div class='paginator'>
+    <mat-paginator
+      #paginator
+      [pageSizeOptions]= '[12, 18, 24]'
+      [showFirstLastButtons]='true'
+      aria-label='Paginator' class='paginatorLabel'>
+    </mat-paginator>
+  </div>
+
+</div>

@@ -74,10 +74,11 @@ export class createStudentComponent {
   }
 
   validateEmail(data : any){
-  if (!data.email.includes('@')) {
-    alert('Email deve conter @');
-    return false;
-    } return true;
+    if (!data.email.includes('@')) {
+      alert('Email deve conter @');
+      return false;
+    }
+    return true;
   }
 
   validateCpf(data: any){
@@ -89,10 +90,11 @@ export class createStudentComponent {
   }
 
   validatePhone(data: any){
-  if (data.phone.length < 11) {
-    alert('Insira um número de telefone válido');
-    return false;
-    }  return true;
+    if (data.phone.length < 11) {
+      alert('Insira um número de telefone válido');
+      return false;
+    }
+    return true;
   }
 
   validateCpfExists(data: any) {
@@ -100,7 +102,7 @@ export class createStudentComponent {
       if (exists) {
         alert('CPF já cadastrado no sistema');
         return ;
-      } 
+      }
     }); return true;
   }
 
@@ -109,7 +111,7 @@ export class createStudentComponent {
       if (exists) {
         alert('Email já cadastrado no sistema');
         return ;
-      } 
+      }
     }); return true;
   }
 

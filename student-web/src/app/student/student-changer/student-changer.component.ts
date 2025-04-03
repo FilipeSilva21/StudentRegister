@@ -79,7 +79,8 @@ export class updateStudentComponent{
     if (!data.email.includes('@')) {
       alert('Email deve conter @');
       return false;
-    } return true;
+    }
+    return true;
   }
 
   validatePhone(data: any){
@@ -87,7 +88,7 @@ export class updateStudentComponent{
       alert('Insira um número de telefone válido');
       return false;
     } 
-      return true; 
+    return true;
   }
 
   validateEmailExists(data: any) {
